@@ -119,12 +119,12 @@ export default {
         responseHeaders.set("Access-Control-Max-Age", "86400"); // 24小时
 
         // 对OPTIONS请求直接响应
-        // if (request.method === "OPTIONS") {
-        //   return new Response(null, {
-        //     status: 200, // 从204改为200，与应用层保持一致
-        //     headers: responseHeaders,
-        //   });
-        // }
+        if (request.method === "OPTIONS") {
+          return new Response(null, {
+            status: 200, // 从204改为200，与应用层保持一致
+            headers: responseHeaders,
+          });
+        }
 
         // 为所有WebDAV客户端添加认证挑战头
         // 如果没有Authorization头且是WebDAV客户端，提供认证挑战

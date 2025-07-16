@@ -128,8 +128,7 @@ export default {
 
         // 为所有WebDAV客户端添加认证挑战头
         // 如果没有Authorization头且是WebDAV客户端，提供认证挑战
-        // if (!request.headers.has("Authorization") && isWebDAVClient(userAgent)) {
-        if (!request.headers.has("Authorization")) {
+        if (!request.headers.has("Authorization") && isWebDAVClient(userAgent)) {
           // 对于非浏览器WebDAV客户端，总是返回401状态码和WWW-Authenticate头
           // 这是符合标准的做法，允许客户端发送认证信息
           console.log(`WebDAV请求: 检测到无认证WebDAV客户端，发送认证挑战`);
